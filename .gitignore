@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+dist/
+
+# Local Database
+*.sqlite
+sunseating.sqlite
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build info
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
