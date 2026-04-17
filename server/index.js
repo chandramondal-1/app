@@ -14,6 +14,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root Route for Health Check
+app.get('/', (req, res) => {
+  res.send('SunSeating Server is successfully live on the internet!');
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/attendance', attendanceRoutes);

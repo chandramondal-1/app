@@ -45,22 +45,27 @@ const InstallButton = () => {
     <div style={{ marginTop: '1.5rem', borderTop: '1px solid #eee', paddingTop: '1.5rem' }}>
       <button 
         onClick={handleInstallClick}
-        className="btn btn-outline"
+        className="btn"
         style={{ 
           width: '100%', 
           display: 'flex', 
           alignItems: 'center', 
           justifyContent: 'center', 
           gap: '10px',
-          borderColor: '#FF8BA7',
-          color: '#FF8BA7'
+          backgroundColor: '#FF8BA7',
+          color: 'white',
+          padding: '12px',
+          borderRadius: '8px',
+          fontWeight: 'bold',
+          border: 'none',
+          boxShadow: '0 4px 6px rgba(255, 139, 167, 0.2)'
         }}
       >
-        <Download size={20} />
-        Download & Install App
+        <Download size={22} />
+        DOWNLOAD & INSTALL APP
       </button>
-      <p style={{ fontSize: '0.75rem', color: '#666', marginTop: '0.5rem', textAlign: 'center' }}>
-        Install the SunSeating app on your home screen for quick access.
+      <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '0.75rem', textAlign: 'center' }}>
+        Click to download and add the SunSeating icon to your phone's home screen.
       </p>
     </div>
   );
