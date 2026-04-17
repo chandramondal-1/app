@@ -1,10 +1,13 @@
-name: Build Android APK
+name: Build and Deploy APK
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -43,8 +46,15 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
+      - name: Prepare Download Folder
+        run: |
+          mkdir -p deploy
+          cp client/android/app/build/outputs/apk/debug/app-debug.apk deploy/sunseating.apk
+          # Add a simple index.html so the page isn't empty
+          echo "<h1>SunSeating App</h1><p><a href='sunseating.apk'>Download APK</a></p>" > deploy/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: SunSeating-App-APK
-          path: client/android/app/build/outputs/apk/debug/app-debug.apk
+          folder: deploy
+          branch: gh-pages
